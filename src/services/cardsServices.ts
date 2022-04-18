@@ -83,7 +83,7 @@ export async function update(cardId: number, cvc: string, password:string) {
     const activatedCard = {
      ...card,
      password: passwordHashed
-    }; 
+    };
     await cardRepository.update(cardId, activatedCard);
 }
 
@@ -92,7 +92,7 @@ export async function balance(cardId:any) {
     
     const balance = await totalBalance(cardId);
     const payments = await paymentRepository.findByCardId(cardId);
-    const recharges = await rechargeRepository.findByCardId(cardId);    
+    const recharges = await rechargeRepository.findByCardId(cardId);
     const statement = {
         balance:balance,
         transactions:payments,

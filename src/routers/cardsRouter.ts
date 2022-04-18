@@ -7,7 +7,7 @@ import * as cardsController from '../controllers/cardsController.js'
 
 const cardsRouter = express.Router();
 
-cardsRouter.post('/cards/create',validateCompanyMiddleware, validateCardTypeMiddleware(typeCardSchema) );
+cardsRouter.post('/cards/create',validateCompanyMiddleware, validateCardTypeMiddleware(typeCardSchema),cardsController.create);
 cardsRouter.post('/cards/activate', cardsController.update);
 cardsRouter.get('/cards/balance/:id', cardsController.balance);
 
