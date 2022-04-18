@@ -1,7 +1,6 @@
 import * as paymentRepository from '../repositories/paymentRepository.js'
 import * as rechargeRepository from '../repositories/rechargeRepository.js'
 
-
 async function totalBalance(id: number){
     const recharges = await rechargeRepository.findByCardId(id);
     const payments = await paymentRepository.findByCardId(id);

@@ -9,5 +9,4 @@ export async function rechargeCard(cardId:number, amount:number) {
 
     const rechargeData : RechargeInsertData = {cardId, amount};
     await rechargeRepository.insert(rechargeData);
-    
 }

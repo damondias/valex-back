@@ -4,6 +4,6 @@ import validateCompanyMiddleware from "../middlewares/validateCompanyMiddleware.
 
 const rechargesRouter = express.Router();
 
-rechargesRouter.post('/recharges',validateCompanyMiddleware, recharge)
+rechargesRouter.post('/recharges',validateCompanyMiddleware, recharge);
 
 export default rechargesRouter;

@@ -37,11 +37,10 @@ export async function create(employeeId: number, type: TransactionTypes) {
     };
     await cardRepository.insert(cardData);
     
-    
     function cutName(fullName:string) {
         const array = fullName.split(" ");
         
-        let cutName = []
+        let cutName = [];
         for (let i = 0; i < array.length; i++) {
             if ( i !== array.length-1 && i !== 0 ) {
                 if (array[i].length>2) {
@@ -52,6 +51,7 @@ export async function create(employeeId: number, type: TransactionTypes) {
         const newName = array[0] +' '+ cutName+ ' ' + (array[array.length-1]);
         return newName.toUpperCase();
     }
+
     function formatExpirationDate() {
         const data = dayjs().format('MM/YY');
         const cut = data.split('/');
@@ -83,9 +83,8 @@ export async function update(cardId: number, cvc: string, password:string) {
     const activatedCard = {
      ...card,
      password: passwordHashed
-     };
- 
-     await cardRepository.update(cardId, activatedCard);
+    }; 
+    await cardRepository.update(cardId, activatedCard);
 }
 
 export async function balance(cardId:any) {
@@ -93,8 +92,7 @@ export async function balance(cardId:any) {
     
     const balance = await totalBalance(cardId);
     const payments = await paymentRepository.findByCardId(cardId);
-    const recharges = await rechargeRepository.findByCardId(cardId);
-    
+    const recharges = await rechargeRepository.findByCardId(cardId);    
     const statement = {
         balance:balance,
         transactions:payments,

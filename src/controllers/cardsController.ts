@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-
 import * as cardServices from '../services/cardsServices.js'
 
 export async function create(req: Request, res: Response) {
@@ -9,11 +8,9 @@ export async function create(req: Request, res: Response) {
         return res.sendStatus(422);
     }
 
-    await cardServices.create(employeeId, type)
-   
+    await cardServices.create(employeeId, type);
     return res.sendStatus(201);
 }
-
 
 export async function update(req: Request, res: Response) {
     const { cardId, cvc, password } = req.body;
@@ -22,8 +19,7 @@ export async function update(req: Request, res: Response) {
         return res.sendStatus(422);
     }
 
-    await cardServices.update(cardId, cvc, password)
-
+    await cardServices.update(cardId, cvc, password);
     return res.sendStatus(200);
 }
 
@@ -33,7 +29,6 @@ export async function balance(req: Request, res: Response) {
         return res.sendStatus(422);
     }
 
-    const balance = await cardServices.balance(id)
-
+    const balance = await cardServices.balance(id);
     res.send(balance);
 }
