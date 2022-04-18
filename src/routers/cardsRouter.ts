@@ -1,6 +1,6 @@
 import express from "express";
 import validateCardTypeMiddleware from "../middlewares/validateCardTypeMiddleware.js";
-import validateCompanyMiddleware from "../middlewares/validateCompanyMiddlewares.js";
+import validateCompanyMiddleware from "../middlewares/validateCompanyMiddleware.js";
 import typeCardSchema from "../schemas/cardTypeSchema.js";
 import * as cardsController from '../controllers/cardsController.js'
 
